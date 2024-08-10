@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
+    
+    // Looks for any data-partial and downloads the html for them and puts it on the page. 
+    injectPartials();
+});
+
+function injectPartials() {
     var partials = document.querySelectorAll("[data-partial]");
 
     partials.forEach(async x => {
@@ -14,4 +20,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
           const html = await response.text();
           x.innerHTML = html;
     })
-});
+}
